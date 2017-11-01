@@ -7,6 +7,10 @@ The following tools are required:
  * gcc
  * freeglut
 
+The program uses Freeglut for window management, OpenGL context rendering
+and events handling as the final rendering procedure is really simple
+and the program is small.
+
 ### Install `freeglut` on Archlinux
 
 ```sh
