@@ -1,6 +1,6 @@
 CC=gcc
 SOURCEDIR=src
-LIBS=libs/simple-noise-rs/simple-noise-rs/target/debug/libsimplenoise.a
+LIBS=-lglut libs/simple-noise-rs/simple-noise-rs/target/debug/libsimplenoise.a
 
 all: simple_noise_rs c_rust_opengl_noise
 

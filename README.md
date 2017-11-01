@@ -5,6 +5,13 @@
 The following tools are required:
  * cargo (Rust nightly),
  * gcc
+ * freeglut
+
+### Install `freeglut` on Archlinux
+
+```sh
+pacman -S freeglut
+```
 
 ## Install sub-module (Rust A-Star library)
 
