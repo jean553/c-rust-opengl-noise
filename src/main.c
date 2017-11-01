@@ -1,6 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-
+#include <GL/gl.h>
 #include <GL/glut.h>
 
 #define WINDOW_WIDTH 800
@@ -10,6 +8,10 @@
  * @brief renders the scene
  */
 void render() {
+
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glFlush();
 }
 
 /**
