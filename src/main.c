@@ -12,6 +12,12 @@ void render() {
     /* clear the whole content of the current enabled buffer */
     glClear(GL_COLOR_BUFFER_BIT);
 
+    glBegin(GL_LINE_STRIP);
+
+      /* TODO: use glVertex3f to draw a strip line */
+
+    glEnd();
+
     glFlush();
 }
 
@@ -19,6 +25,10 @@ void render() {
  * @brief program starting function
  */
 int main(int argc, char* argv[]) {
+
+    /* TODO: #5 check how to pass parameters to the program
+     * in order to have a grid with dimensions;
+     * for now, it throws a segmentation fault when initializing glut */
 
     /* there is no need to pass input parameters to glut */
     glutInit(&argc, NULL);
