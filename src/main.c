@@ -29,6 +29,7 @@ int8_t map[MAP_LENGTH];
 void render() {
 
     float x_position = -0.5f;
+    float z_position = -0.5f;
 
     /* clear the whole content of the current enabled buffer */
     glClear(GL_COLOR_BUFFER_BIT);
@@ -37,16 +38,24 @@ void render() {
 
         for (
             unsigned int i = 0;
-            i < 10;
+            i < MAP_LENGTH;
             i += 1
         ) {
             glVertex3f(
                 x_position,
                 0.1f * map[i],
-                0.0f
+                z_position
             );
 
             x_position += 0.1f;
+
+            if (
+                i % 10 == 0 &&
+                i != 0
+            ) {
+                z_position += 0.1f;
+                x_position = -0.5f;
+            }
         }
 
     glEnd();
