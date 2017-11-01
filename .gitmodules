@@ -1,0 +1,3 @@
+[submodule "libs/simple-noise-rs"]
+	path = libs/simple-noise-rs
+	url = git@github.com:jean553/simple-noise-rs.git
