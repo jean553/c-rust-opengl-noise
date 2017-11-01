@@ -9,6 +9,7 @@
  */
 void render() {
 
+    /* clear the whole content of the current enabled buffer */
     glClear(GL_COLOR_BUFFER_BIT);
 
     glFlush();
@@ -19,14 +20,17 @@ void render() {
  */
 int main(int argc, char* argv[]) {
 
-    glutInit(&argc, argv);
+    /* there is no need to pass input parameters to glut */
+    glutInit(&argc, NULL);
+
+    /* only one single buffer drawn and displayed at the same time */
     glutInitDisplayMode(GLUT_SINGLE);
 
     glutInitWindowSize(
         WINDOW_WIDTH,
         WINDOW_HEIGHT
     );
-    glutCreateWindow(NULL);
+    glutCreateWindow("c-rust-opengl-noise");
 
     glutDisplayFunc(render);
     glutMainLoop();
