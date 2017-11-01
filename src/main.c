@@ -28,10 +28,26 @@ int8_t map[MAP_LENGTH];
  */
 void render() {
 
+    float x_position = -0.5f;
+
     /* clear the whole content of the current enabled buffer */
     glClear(GL_COLOR_BUFFER_BIT);
 
     glBegin(GL_LINE_STRIP);
+
+        for (
+            unsigned int i = 0;
+            i < 10;
+            i += 1
+        ) {
+            glVertex3f(
+                x_position,
+                0.1f * map[i],
+                0.0f
+            );
+
+            x_position += 0.1f;
+        }
 
     glEnd();
 
