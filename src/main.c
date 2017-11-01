@@ -5,6 +5,7 @@
 #define WINDOW_HEIGHT 600
 
 #define MAP_LENGTH 100
+#define NODES_PER_LINE 10
 #define WIDTH 10
 #define HEIGHT 10
 #define MINIMUM -3
@@ -50,7 +51,7 @@ void render() {
             x_position += 0.1f;
 
             if (
-                i % 10 == 0 &&
+                i % NODES_PER_LINE == 0 &&
                 i != 0
             ) {
                 z_position += 0.1f;
