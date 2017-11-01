@@ -35,31 +35,49 @@ void render() {
     /* clear the whole content of the current enabled buffer */
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glBegin(GL_LINE_STRIP);
+    /* TODO: must be documented */
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    gluLookAt(
+        0.0f,
+        0.5f,
+        -0.5f,
+        0.0f,
+        0.0f,
+        0.0f,
+        0.0f,
+        1.0f,
+        0.0f
+    );
+
+    for (
+        unsigned int j = 0;
+        j < NODES_PER_LINE;
+        j += 1
+    ) {
+
+        glBegin(GL_LINE_STRIP);
 
         for (
             unsigned int i = 0;
-            i < MAP_LENGTH;
+            i < NODES_PER_LINE;
             i += 1
         ) {
             glVertex3f(
                 x_position,
-                0.1f * map[i],
+                0.1f * map[j * NODES_PER_LINE + i],
                 z_position
             );
 
             x_position += 0.1f;
-
-            if (
-                i % NODES_PER_LINE == 0 &&
-                i != 0
-            ) {
-                z_position += 0.1f;
-                x_position = -0.5f;
-            }
         }
 
-    glEnd();
+        glEnd();
+
+        z_position += 0.1f;
+        x_position = -0.5f;
+    }
 
     glFlush();
 }
