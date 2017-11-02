@@ -17,6 +17,12 @@ and the program is small.
 pacman -S freeglut
 ```
 
+### Install `glut` on Ubuntu
+
+```sh
+apt-get install libglut3-dev
+```
+
 ## Install sub-module (Rust A-Star library)
 
 ```bash
