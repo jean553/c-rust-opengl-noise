@@ -1,4 +1,5 @@
 CC=gcc
+CFLAGS=-std=c99
 SOURCEDIR=src
 LIBS=-lm -ldl -lpthread -lGL -lGLU -lglut libs/simple-noise-rs/simple-noise-rs/target/debug/libsimplenoise.a
 
