@@ -11,6 +11,9 @@
 #define MINIMUM -3
 #define MAXIMUM 3
 
+#define SQUARE_DIMENSION 0.1f
+#define MAP_HALF_DIMENSION 0.5f
+
 extern void get_map(
     int8_t* map,
     uint8_t width,
@@ -29,8 +32,8 @@ int8_t map[MAP_LENGTH];
  */
 void render() {
 
-    float x_position = -0.5f;
-    float z_position = -0.5f;
+    float x_position = -MAP_HALF_DIMENSION;
+    float z_position = -MAP_HALF_DIMENSION;
 
     /* clear the whole content of the current enabled buffer */
     glClear(GL_COLOR_BUFFER_BIT);
@@ -40,9 +43,9 @@ void render() {
     glLoadIdentity();
 
     gluLookAt(
-        0.0f,
-        0.5f,
-        -0.5f,
+        0.2f,
+        0.1f,
+        -0.1f,
         0.0f,
         0.0f,
         0.0f,
@@ -66,17 +69,48 @@ void render() {
         ) {
             glVertex3f(
                 x_position,
-                0.1f * map[j * NODES_PER_LINE + i],
+                SQUARE_DIMENSION * map[j * NODES_PER_LINE + i],
                 z_position
             );
 
-            x_position += 0.1f;
+            x_position += SQUARE_DIMENSION;
         }
 
         glEnd();
 
-        z_position += 0.1f;
-        x_position = -0.5f;
+        z_position += SQUARE_DIMENSION;
+        x_position = -MAP_HALF_DIMENSION;
+    }
+
+    x_position = -MAP_HALF_DIMENSION;
+    z_position = -MAP_HALF_DIMENSION;
+
+    for (
+        unsigned int j = 0;
+        j < NODES_PER_LINE;
+        j += 1
+    ) {
+
+        glBegin(GL_LINE_STRIP);
+
+        for (
+            unsigned int i = 0;
+            i < NODES_PER_LINE;
+            i += 1
+        ) {
+            glVertex3f(
+                x_position,
+                SQUARE_DIMENSION * map[i * NODES_PER_LINE + j],
+                z_position
+            );
+
+            z_position += SQUARE_DIMENSION;
+        }
+
+        glEnd();
+
+        x_position += SQUARE_DIMENSION;
+        z_position = -MAP_HALF_DIMENSION;
     }
 
     glFlush();
