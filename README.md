@@ -1,5 +1,10 @@
 # c-rust-opengl-noise
 
+Simple random noise generation, drawing result with OpenGL in C,
+using a Rust library for the noise creation.
+
+![Image 1](screenshot.png)
+
 ## Requirements
 
 The following tools are required:
