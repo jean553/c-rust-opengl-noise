@@ -39,7 +39,6 @@ void render() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     /* TODO: must be documented */
-    glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
     gluLookAt(
