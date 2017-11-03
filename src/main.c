@@ -38,8 +38,9 @@ void render() {
     /* clear the whole content of the current enabled buffer */
     glClear(GL_COLOR_BUFFER_BIT);
 
-    /* TODO: must be documented */
-    glMatrixMode(GL_MODELVIEW);
+    /* use the identity matrix for rendering (required for camera setup)
+       if any translation/rotation occured to the current matrix before,
+       then the state of the matrix is reset */
     glLoadIdentity();
 
     gluLookAt(
